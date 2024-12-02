@@ -4,8 +4,20 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello, World!'
+def index():
+    with open("blog_data.json", "r") as fileobj:
+        blog_posts = fileobj.readlines()
+        for blog in blog_posts:
+            print(blog)
+    return render_template("index.html", posts="blog_data")
+
+
+@app.route('/add', methods=["GET", "POST"])
+def add():
+    if request.method == 'POST':
+        # We will fill this in the next step
+        pass
+    return render_template('add.html')
 
 
 if __name__ == '__main__':
