@@ -1,0 +1,11 @@
+
+
+.post {
+display: flex;
+}
+
+.button {
+display: flex;
+flex-column,
+gap: 10px;
+}
