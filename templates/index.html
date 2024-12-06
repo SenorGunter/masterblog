@@ -14,8 +14,9 @@
             <p><em>Written by {{ post.author }}</em></p>
             <p>{{ post.content }}</p>
             <div class="post_buttons">
-                <form action="/update/{{ post.id }}" method="POST">
-                    <button type="submit">Update Post</button>
+                <form action="/" method=POST>
+                    <input type="hidden" name="post_id" value="{{ post.id }}">
+                    <button type="submit" name="action" value="update">Update Post</button>
                 </form>
                 <form action="/delete/{{ post.id }}" method="POST">
                     <button type="submit">Delete Post</button>
@@ -24,7 +25,7 @@
         </div>
     {% endfor %}
     <form action="/" method="POST">
-        <button type="submit">Add new one</button>
+        <button type="submit" name="action" value="add">Add new one</button>
     </form>
 </body>
 </html>
