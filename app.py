@@ -1,3 +1,5 @@
+from urllib import request
+
 from flask import *
 import json
 import uuid
@@ -37,13 +39,14 @@ def add():
     """ Function to add a new blog entry """
 
     if request.method == 'POST':
-        blog_author = request.form.get("author")
-        blog_title = request.form.get("title")
-        blog_content = request.form.get("content")
+        blog_author = request.form.get("author").strip()
+        blog_title = request.form.get("title").strip()
+        blog_content = request.form.get("content").strip()
 
         unique_id = generate_uid()
 
-        data = load_data()
+        loaded_data = load_data()
+        data = loaded_data
 
         new_data = {"id": unique_id, "author": blog_author, "title": blog_title, "content": blog_content}
 
@@ -92,9 +95,9 @@ def update(post_id):
         return "Post not found", 404
 
     if request.method == 'POST':
-        updated_author = request.form.get("author")
-        updated_title = request.form.get("title")
-        updated_content = request.form.get("content")
+        updated_author = request.form.get("author").strip()
+        updated_title = request.form.get("title").strip()
+        updated_content = request.form.get("content").strip()
 
         post_to_update['author'] = updated_author
         post_to_update['title'] = updated_title
