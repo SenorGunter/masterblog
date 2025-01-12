@@ -11,11 +11,11 @@
     <div class="post">
         <form action="/update/{{ post.id }}" method="POST">
             <label for="author">Author:</label><br>
-            <input type="text" id="author" name="author" value="{{ post.author }}"><br>
+            <textarea id="author" name="author">{{ post.author }}</textarea><br>
             <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title" value="{{ post.title }}"><br>
+            <textarea id="title" name="title">{{ post.title }}</textarea><br>
             <label for="content">Content:</label><br>
-            <input type="text" id="content" name="content" value="{{ post.content }}"><br>
+            <textarea id="content" name="content">{{ post.content }}</textarea><br>
 
             <input type="submit" value="Update">
         </form>
